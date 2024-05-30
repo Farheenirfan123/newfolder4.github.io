@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  
+<div class="container-sm d-flex flex-wrap justify-content-around m-auto mt-5 border border-2 " style="height: 500px; background-color: beige; border-radius: 30px;">
+    <div class="card h-75 mt-4 shadow-lg" style="width: 350px; border-radius: 20px; background-color: antiquewhite;">
+        <p class="text-center fw-bolder fs-3 text-white" style="background-image: linear-gradient(purple , pink); border-top-right-radius: 20px; border-top-left-radius: 20px;" >Sign up</p>
+    <input class="mt-4 ms-4 me-2" type="text" name="" id="Name" placeholder="Name">
+    
+    <input class="mt-4 ms-4 me-2" type="email" name="" id="email" placeholder="Email">
+    
+    <input class="mt-4 ms-4 me-2" type="password" name="" id="password" placeholder="Password">
+    
+    <button class="mt-5 text-white fw-bolder fs-5" style="  margin: auto; background-image: linear-gradient(purple , pink); border-radius: 20px; width: 200px;" onclick="Registered()">Registered</button>
+</div>
+<div class="card h-75 mt-4 shadow-lg" style=" width: 350px; border-radius: 20px; background-color: rgb(223, 218, 211);">
+    <p class="text-center fw-bolder fs-3 text-white" style="background-image: linear-gradient( rgba(0, 0, 255, 0.945) , purple); border-top-right-radius: 20px; border-top-left-radius: 20px;" >Login</p>
+
+    <input class="mt-5 ms-4 me-2 "  type="email" name="" id="email-2" placeholder="Email">
+    
+    <input class="mt-5 ms-4 me-2 "   type="password" name="" id="password-2" placeholder="Password">
+    <br>
+    <br>
+    <button class="mt-5 text-white fw-bolder fs-5" style="  margin: auto; background-image: linear-gradient(blue ,purple ); border-radius: 20px; width: 200px;"  onclick="Login()">Login</button>
+</div>
+</div>
+
+   
+    <script>
+        let users=[]
+        function Registered(){
+        users.push({
+            Name : document.getElementById("Name").value ,
+            Email : document.getElementById("email").value  , 
+            Password : document.getElementById("password").value 
+        })
+       console.log(users );
+
+       
+      
+    }
+
+     function Login() {
+        let loggedIn = false; // Flag to track if the user is successfully logged in
+
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].Email == document.getElementById("email-2").value && users[i].Password == document.getElementById("password-2").value) {
+                loggedIn = true;
+                break; // Exit the loop once a match is found
+            }
+        }
+
+        if (loggedIn) {
+            window.alert("Login successfully");
+        } else {
+            window.alert("Invalid password or email");
+        }
+    
+    
+     }
+    let txt =[];
+
+let add = () => {
+   let user = document.getElementById("user").value;
+
+    let foundResult = txt.find( (elements) => {
+            return user == elements;
+        }
+    )
+    if (foundResult){
+        console.log(`user ${foundResult} Already registered`);
+        alert("user already register")
+      let link = document.getElementById("user").getAttribute( www.google.com)
+      console.log(link)
+    }
+    else{
+        txt.push(user);
+        console.log(txt);
+        
+    }
+}
+    </script>
+   <button type="button" class=" btn btn-danger float-end ms-5 mt-3" style="background-color: #E50914; color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+    Sign in
+  </button>
+  
+  <!-- Modal -->
+  <div class=" modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class=" modal-dialog">
+      <div class="modal-content" style="opacity: 0.9; background-color: black;">
+        <div class=" modal-header" style="opacity: 0.9; background-color: black;">
+          <h1 class="modal-title text-white ms-5" id="exampleModalLabel">Sign in</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input class="bg-dark border border-2 border-secondary rounded mt-1  p-3 w-75 d-block fs-5" style="margin: auto; opacity: 0.9;" type="email" name="" id="user" placeholder="Email address"> <br>
+          <input class="bg-dark border border-2 border-secondary rounded mt-1  p-3 w-75 d-block fs-5" style="margin: auto; opacity: 0.9;" type="password" name="" id="user" placeholder="password"> <br>
+          <div class="btn-group btn-danger rounded w-75 p-3 fw-bolder mt-1 d-block text-center fs-5" style="margin: auto;" onclick="add()">Sign in</div>
+          <input class="bg-dark ms-5 mt-3 fs-5" type="checkbox" name="" id=""><span class="text-white fs-5 ">Remember me</span>
+        
+          <a class="text-white float-end me-5 mt-5 fs-5" href="">Need help?</a>
+        </div>
+        <div class="modal-footer">
+          <div class="text-white text-center fs-5" style="margin: auto;" data-bs-dismiss="modal">New to Netflix? Sign up now.</div>
+          <div class="text-center text-white mt-3 fs-5" style="margin: auto;">
+            This page is protected by Google reCAPTCHA to <br>
+            ensure you're not a bot. <a class="text-info fs-5" href="">Learn more.</a>
+        </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- login  -->
+  <button type="button" class=" btn btn-danger float-end ms-5 mt-3" style="background-color: #E50914; color: white;" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+    login
+  </button>
+  
+  <!-- Modal -->
+  <div class=" modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class=" modal-dialog">
+      <div class="modal-content" style="opacity: 0.9; background-color: black;">
+        <div class=" modal-header" style="opacity: 0.9; background-color: black;">
+          <h1 class="modal-title text-white ms-5" id="exampleModalLabel">Sign in</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input class="bg-dark border border-2 border-secondary rounded mt-1  p-3 w-75 d-block fs-5" style="margin: auto; opacity: 0.9;" type="email" name="" id="user" placeholder="Email address"> <br>
+          <input class="bg-dark border border-2 border-secondary rounded mt-1  p-3 w-75 d-block fs-5" style="margin: auto; opacity: 0.9;" type="password" name="" id="user" placeholder="password"> <br>
+          <div class="btn-group btn-danger rounded w-75 p-3 fw-bolder mt-1 d-block text-center fs-5" style="margin: auto;" onclick="add()">Sign in</div>
+          <input class="bg-dark ms-5 mt-3 fs-5" type="checkbox" name="" id=""><span class="text-white fs-5 ">Remember me</span>
+        
+          <a class="text-white float-end me-5 mt-5 fs-5" href="">Need help?</a>
+        </div>
+        <div class="modal-footer">
+          <div class="text-white text-center fs-5" style="margin: auto;" data-bs-dismiss="modal">New to Netflix? Sign up now.</div>
+          <div class="text-center text-white mt-3 fs-5" style="margin: auto;">
+            This page is protected by Google reCAPTCHA to <br>
+            ensure you're not a bot. <a class="text-info fs-5" href="">Learn more.</a>
+        </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
